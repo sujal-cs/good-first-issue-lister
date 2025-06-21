@@ -20,7 +20,7 @@ const Navbar: React.FC = () => {
         <ul className="flex list-none gap-2 font-bold items-center">
           <li>
             <Link
-              href="https://github.com"
+              href="https://github.com/sujal-cs/good-first-issue-lister"
               className="flex items-center justify-center gap-1"
             >
               <Image
