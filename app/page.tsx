@@ -5,9 +5,17 @@ import IssueForm from "../components/IssueForm";
 import IssueList from "../components/IssueList";
 import { useState } from "react";
 
-const Home: React.FC = () => {
-  const [issues, setIssues] = useState<any[]>([]);
+type Issue = {
+  number: number;
+  title: string;
+  html_url: string;
+};
 
+
+
+const Home: React.FC = () => {
+  const [issues, setIssues] = useState<Issue[]>([]);
+  
   const fetchIssue = async (url: string) => {
     const response = await fetch("/api/issues", {
       method: "POST",
@@ -31,7 +39,7 @@ const Home: React.FC = () => {
         <div className="bg-accent-1 m-4 mb-9 rounded-lg w-[80vw] md:w-[60vw] flex flex-col gap-2 items-center justify-center">
           {issues.map((issue) => (
             <IssueList
-              key={issue.id}
+              key={issue.number}
               title={issue.title}
               issueID={`#${issue.number}`}
               linkToIssue={issue.html_url}
